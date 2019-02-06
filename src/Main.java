@@ -30,10 +30,11 @@ public class Main {
     }
 
 
+
     public static void main(String[] args) {
 
         boolean hasSolution = false;
-        int inputValue = 18;
+        int inputValue = 17;
 //      int inputValue = 18;
 
 
@@ -44,7 +45,7 @@ public class Main {
 
         ArrayList<Integer> outPut = new ArrayList<>();
 
-        while (hasSolution == true) {
+        while (true) {
             System.out.println(inputValue);
             for (int i = 0; i < bundleValue.toArray().length; i++) {
                 boolean hasLoopSolution = false;
@@ -56,6 +57,7 @@ public class Main {
                     outPut.add(loopNum(inputValue, currentBundleValue1));
                     outPut.add(currentBundleValue1);
                     hasLoopSolution = hasSolution = true;
+//                    System.out.println("hasSolution value:  " +hasSolution);
                     printArray(outPut);
                     break;
                 }
@@ -64,12 +66,12 @@ public class Main {
                     outPut.add(loopNum(inputValue, currentBundleValue1));
                     outPut.add(currentBundleValue1);
                     hasLoopSolution = hasSolution = true;
+//                     = 1;
                     printArray(outPut);
-
                     break;
                 }
 
-                int loopNumValue = loopNum(inputValue, bundleValue.get(i)); // 9->3 6->5 3->11
+                int loopNumValue = loopNum(inputValue, bundleValue.get(i));
                 ArrayList<Integer> loopResultValue = loopResult(inputValue, currentBundleValue1, loopNumValue);
                 for (int y : loopResultValue) {
                     outPut.clear();
@@ -103,8 +105,10 @@ public class Main {
                     }
                 }
             }
-            if (hasSolution == false) {
-                inputValue = inputValue + 1;
+            if (hasSolution == true) {
+                break;
+            }else {
+                inputValue ++;
             }
 
 
